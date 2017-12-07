@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_memcpy.c                                      .::    .:/ .      .::   */
+/*   main.c                                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: brobicho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/12/04 03:19:55 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/04 03:19:55 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/07 16:21:28 by brobicho     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/07 16:21:51 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
+#include <stdio.h>
+#include <fcntl.h>
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int		main(int ac, char **av)
 {
-	unsigned long	i;
-	const char		*source;
-	char			*dest;
+	int		fd;
+	int		flag;
+	char	*line;
 
-	source = src;
-	dest = dst;
-	i = 0;
-	while (i < n)
+	fd = 0;
+	flag = 1;
+	if (ac == 1)
 	{
-		dest[i] = source[i];
-		i++;
+		get_next_line(fd, &line);
+		printf("%s", line);
 	}
-	return (dst);
+	else
+	{
+		fd = open(av[1], O_RDONLY);
+		while (flag)
+		{
+			flag = get_next_line(fd, &line);
+			printf("%s\n", line);
+		}
+		close(fd);
+	}
 }

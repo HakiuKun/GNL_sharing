@@ -6,7 +6,7 @@
 /*   By: brobicho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/05 14:17:44 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/05 14:17:46 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/07 16:24:14 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,11 +19,11 @@
 
 int		get_next_line(int fd, char **line)
 {
-	char buff[8];
-	char *str;
-	static int i;
-	int j;
-	int k;
+	char		buff[8];
+	char		*str;
+	static int	i;
+	int			j;
+	int			k;
 
 	i = 0;
 	k = 0;

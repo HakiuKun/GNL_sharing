@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_memcpy.c                                      .::    .:/ .      .::   */
+/*   ft_realloc.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: brobicho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/12/04 03:19:55 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/04 03:19:55 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/04 03:02:36 by brobicho     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/07 16:22:54 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void		*ft_realloc(void *mem, size_t size)
 {
-	unsigned long	i;
-	const char		*source;
-	char			*dest;
+	void		*mem_cpy;
 
-	source = src;
-	dest = dst;
-	i = 0;
-	while (i < n)
-	{
-		dest[i] = source[i];
-		i++;
-	}
-	return (dst);
+	if (!mem || !size)
+		return (NULL);
+	if (!(mem_cpy = ft_strnew(size)))
+		return (NULL);
+	ft_strcpy(mem_cpy, mem);
+	free(mem);
+	return (mem_cpy);
 }
